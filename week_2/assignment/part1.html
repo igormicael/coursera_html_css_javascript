@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Week 2</title>
+
+</head>
+<body onload="do_game();">
+
+
+	<script type="text/javascript">
+
+		var colors = ['red','blue','green','yellow','black','grey','cyan'];
+
+		function do_game () {
+
+			var guesses = 0;
+			var position = Math.floor(Math.random() * colors.length);
+
+			var chosenColor = colors[position];
+
+			alert(chosenColor);
+
+			var finished = true;
+
+			while(finished){
+
+				var phrase = 'I am thinking of one of these colors:\n\n' +
+								colors + '\n\n' +
+								'What color am I thinking of ?'
+
+				var chosenColorByUser = prompt(phrase);
+
+				guesses ++;
+
+				if(chosenColorByUser == chosenColor){
+					var myBody = document.getElementsByTagName("body")[0];
+
+					myBody.style.background= chosenColor;
+
+					finished = false;
+
+					var youWon = 'Congratulations! You have guessed the color! \n\n' +
+							  'It took ' + guesses + ' guesses to finish the game !\n\n' +
+							  'You can see the colour in the background.'; 
+
+					alert(youWon);
+
+				}
+
+			}
+
+		}
+
+	</script>
+
+</body>
+</html>
